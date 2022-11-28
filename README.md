@@ -5,6 +5,13 @@
 3. Запустить авто тесты командой `./gradlew clean test`.
 4. Для создания отчета Allure запустить команду `./gradlew allureServe`.
 
+### Переключение СУБД
+
+### **1. MySQL**
+https://github.com/NetologyAlex/QADiplome/blob/3bc0ed8d2ed05a7a1cf3913a991cd8a88449a4d8/application.properties#L9
+
+### **2. PostgreSQL**
+https://github.com/NetologyAlex/QADiplome/blob/3bc0ed8d2ed05a7a1cf3913a991cd8a88449a4d8/application.properties#L4
 
 
 
