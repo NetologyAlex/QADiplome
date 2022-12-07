@@ -10,19 +10,32 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class FillForm {
+public class PaymentPage {
+
     final SelenideElement fieldCardNumber = $("[placeholder='0000 0000 0000 0000']");
+
     final SelenideElement fieldMonth = $("[placeholder='08']");
+
     final SelenideElement fieldYear = $("[placeholder='22']");
+
     final SelenideElement fieldOwner = $$("[class='input__control']").get(3);
+
     final SelenideElement fieldCvc = $("[placeholder='999']");
+
     final SelenideElement buttonContinue = $(byText("Продолжить"));
+
     final SelenideElement bankApproved = $(withText("Операция одобрена Банком."));
+
     final SelenideElement errorFormat = $(withText("Неверный формат"));
+
     final SelenideElement errorBankRefusal = $(withText("Ошибка! Банк отказал в проведении операции."));
+
     final SelenideElement invalidDurationCard = $(withText("Неверно указан срок действия карты"));
+
     final SelenideElement cardExpired = $(withText("Истёк срок действия карты"));
+
     final SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
+
     public void fillOutFields(String cardNumber, String month, String year, String owner, String cvc) {
         fieldCardNumber.setValue(cardNumber);
         fieldMonth.setValue(month);

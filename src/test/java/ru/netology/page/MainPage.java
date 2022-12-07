@@ -5,17 +5,17 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class Buttons {
+public class MainPage {
     final SelenideElement buttonBuy = $("[class='button button_size_m button_theme_alfa-on-white']");
     final SelenideElement buttonBuyCredit = $(byText("Купить в кредит"));
 
-    public FillForm buyDebitCard() {
+    public PaymentPage buyDebitCard() {
         buttonBuy.click();
-        return new FillForm();
+        return new PaymentPage();
     }
 
-    public FillForm buyCreditCard() {
+    public PaymentPage buyCreditCard() {
         buttonBuyCredit.click();
-        return new FillForm();
+        return new PaymentPage();
     }
 }
