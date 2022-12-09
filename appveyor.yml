@@ -23,4 +23,4 @@ install:
   - chmod +x gradlew
 
 build_script:
-  - ./gradlew test --info -Dselenide.headless=true
+  - ./gradlew test --info -Dselenide.headless=true -Ddb.url=jdbc:postgresql://localhost:5432/app

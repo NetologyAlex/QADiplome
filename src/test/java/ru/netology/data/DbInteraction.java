@@ -9,9 +9,9 @@ import java.sql.DriverManager;
 
 public class DbInteraction {
 
-    private static String url = System.getProperty("url");
-    private static String user = System.getProperty("user");
-    private static String password = System.getProperty("password");
+    private static String url = System.getProperty("db.url");
+    private static String user = System.getProperty("db.user");
+    private static String password = System.getProperty("db.password");
 
     public DbInteraction() {
     }
@@ -26,9 +26,8 @@ public class DbInteraction {
         var runner = new QueryRunner();
         var codeSQL = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1;";
 
-        try (var conn = getConnection()) {
-            return runner.query(conn, codeSQL, new ScalarHandler<>());
-        }
+        var conn = getConnection();
+        return runner.query(conn, codeSQL, new ScalarHandler<>());
     }
 
     @SneakyThrows
@@ -36,18 +35,16 @@ public class DbInteraction {
         var runner = new QueryRunner();
         var codeSQL = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1;";
 
-        try (var conn = getConnection()) {
-            return runner.query(conn, codeSQL, new ScalarHandler<>());
-        }
+        var conn = getConnection();
+        return runner.query(conn, codeSQL, new ScalarHandler<>());
     }
 
     @SneakyThrows
-    public void deleteDataFromDb() {
+    public static void deleteDataFromDb() {
         var runner = new QueryRunner();
-        try (var conn = getConnection()) {
-            runner.update(conn, "DELETE FROM credit_request_entity");
-            runner.update(conn, "DELETE FROM order_entity");
-            runner.update(conn, "DELETE FROM payment_entity");
-        }
+        var conn = getConnection();
+        runner.update(conn, "DELETE FROM credit_request_entity");
+        runner.update(conn, "DELETE FROM order_entity");
+        runner.update(conn, "DELETE FROM payment_entity");
     }
 }

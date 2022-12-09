@@ -13,15 +13,16 @@ import ru.netology.page.PaymentPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class YearIsEmpty {
-    DbInteraction db = new DbInteraction();
     MainPage buttons = new MainPage();
     PaymentPage fillfull = new PaymentPage();
 
+    private static String appUrl = System.getProperty("sut.url");
+
     @BeforeEach
     public void setUp2() {
-        open("http://localhost:8080", MainPage.class);
+        open(appUrl, MainPage.class);
 //        Configuration.holdBrowserOpen = true;
-        db.deleteDataFromDb();
+        DbInteraction.deleteDataFromDb();
     }
 
     @BeforeAll

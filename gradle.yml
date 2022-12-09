@@ -38,5 +38,5 @@ jobs:
       - name: Permission
         run: chmod +x ./gradlew
       - name: Test with Gradle
-        run: ./gradlew test --info -Dselenide.headless=true
+        run: ./gradlew test --info -Dselenide.headless=true -Ddb.url=jdbc:postgresql://localhost:5432/app
 
